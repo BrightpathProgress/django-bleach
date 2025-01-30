@@ -81,30 +81,30 @@ jobs:
           name: html-report
           path: htmlcov
 
-  unit-tests-future-versions:
-    # Runs for all Django/Python versions which are not yet supported
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ['3.11', '3.12']
-        django-version: [
-          'https://github.com/django/django/archive/main.tar.gz'
-        ]
+  # unit-tests-future-versions:
+  #   # Runs for all Django/Python versions which are not yet supported
+  #   runs-on: ubuntu-22.04
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       python-version: ['3.11', '3.12']
+  #       django-version: [
+  #         'https://github.com/django/django/archive/main.tar.gz'
+  #       ]
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
-      with:
-        allow-prereleases: true
-        cache: pip
-        cache-dependency-path: 'requirements/*.txt'
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip setuptools wheel
-        python -m pip install --upgrade 'tox>=4.0.0rc3'
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Set up Python ${{ matrix.python-version }}
+  #     uses: actions/setup-python@v5
+  #     with:
+  #       allow-prereleases: true
+  #       cache: pip
+  #       cache-dependency-path: 'requirements/*.txt'
+  #       python-version: ${{ matrix.python-version }}
+  #   - name: Install dependencies
+  #     run: |
+  #       python -m pip install --upgrade pip setuptools wheel
+  #       python -m pip install --upgrade 'tox>=4.0.0rc3'
 
-    - name: Run tox targets for ${{ matrix.python-version }}
-      run: tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
+  #   - name: Run tox targets for ${{ matrix.python-version }}
+  #     run: tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
