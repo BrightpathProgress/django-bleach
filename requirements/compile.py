@@ -6,6 +6,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+
+
 if __name__ == "__main__":
     os.chdir(Path(__file__).parent)
     os.environ["CUSTOM_COMPILE_COMMAND"] = "requirements/compile.py"
@@ -21,142 +23,23 @@ if __name__ == "__main__":
     # https://docs.djangoproject.com/en/3.0/ref/databases/#mysql-db-api-drivers
     subprocess.run(
         [
-            "python3.8",
-            *common_args,
-            "-P",
-            "Django>=3.2a1,<3.3",
-            "-o",
-            "py38-django32.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.8",
-            *common_args,
-            "-P",
-            "Django>=4.0a1,<4.1",
-            "-o",
-            "py38-django40.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.8",
-            *common_args,
-            "-P",
-            "Django>=4.1a1,<4.2",
-            "-o",
-            "py38-django41.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.8",
-            *common_args,
-            "-P",
-            "Django>=4.2a1,<5.0",
-            "-o",
-            "py38-django42.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
             "python3.9",
             *common_args,
             "-P",
-            "Django>=3.2a1,<3.3",
-            "-o",
-            "py39-django32.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.9",
-            *common_args,
-            "-P",
-            "Django>=4.0a1,<4.1",
-            "-o",
-            "py39-django40.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.9",
-            *common_args,
-            "-P",
-            "Django>=4.1a1,<4.2",
-            "-o",
-            "py39-django41.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.9",
-            *common_args,
-            "-P",
-            "Django>=4.2a1,<5.0",
+            "Django>=4.2,<4.3",
             "-o",
             "py39-django42.txt",
         ],
         check=True,
         capture_output=True,
     )
+
     subprocess.run(
         [
             "python3.10",
             *common_args,
             "-P",
-            "Django>=3.2a1,<3.3",
-            "-o",
-            "py310-django32.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.10",
-            *common_args,
-            "-P",
-            "Django>=4.0a1,<4.1",
-            "-o",
-            "py310-django40.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.10",
-            *common_args,
-            "-P",
-            "Django>=4.1a1,<4.2",
-            "-o",
-            "py310-django41.txt",
-        ],
-        check=True,
-        capture_output=True,
-    )
-    subprocess.run(
-        [
-            "python3.10",
-            *common_args,
-            "-P",
-            "Django>=4.2a1,<5.0",
+            "Django>=4.2,<5.0",
             "-o",
             "py310-django42.txt",
         ],
@@ -165,12 +48,37 @@ if __name__ == "__main__":
     )
     subprocess.run(
         [
+            "python3.10",
+            *common_args,
+            "-P",
+            "Django>=5.0,<5.1",
+            "-o",
+            "py310-django50.txt",
+        ],
+        check=True,
+        capture_output=True,
+    )
+    subprocess.run(
+        [
+            "python3.10",
+            *common_args,
+            "-P",
+            "Django>=5.1,<5.2",
+            "-o",
+            "py310-django51.txt",
+        ],
+        check=True,
+        capture_output=True,
+    )
+
+    subprocess.run(
+        [
             "python3.11",
             *common_args,
             "-P",
-            "Django>=4.1a1,<4.2",
+            "Django>=4.2,<5.0",
             "-o",
-            "py311-django41.txt",
+            "py311-django42.txt",
         ],
         check=True,
         capture_output=True,
@@ -180,9 +88,34 @@ if __name__ == "__main__":
             "python3.11",
             *common_args,
             "-P",
-            "Django>=4.2a1,<5.0",
+            "Django>=5.0,<5.1",
             "-o",
-            "py311-django42.txt",
+            "py311-django50.txt",
+        ],
+        check=True,
+        capture_output=True,
+    )
+    subprocess.run(
+        [
+            "python3.11",
+            *common_args,
+            "-P",
+            "Django>=5.1,<5.2",
+            "-o",
+            "py311-django51.txt",
+        ],
+        check=True,
+        capture_output=True,
+    )
+
+    subprocess.run(
+        [
+            "python3.12",
+            *common_args,
+            "-P",
+            "Django>=4.2.8,<5.0",
+            "-o",
+            "py312-django42.txt",
         ],
         check=True,
         capture_output=True,
@@ -192,9 +125,34 @@ if __name__ == "__main__":
             "python3.12",
             *common_args,
             "-P",
-            "Django>=4.2a1,<5.0",
+            "Django>=5.0,<5.1",
             "-o",
-            "py312-django42.txt",
+            "py312-django50.txt",
+        ],
+        check=True,
+        capture_output=True,
+    )
+    subprocess.run(
+        [
+            "python3.12",
+            *common_args,
+            "-P",
+            "Django>=5.1,<5.2",
+            "-o",
+            "py312-django51.txt",
+        ],
+        check=True,
+        capture_output=True,
+    )
+
+    subprocess.run(
+        [
+            "python3.13",
+            *common_args,
+            "-P",
+            "Django>=5.1.3,<5.2",
+            "-o",
+            "py313-django51.txt",
         ],
         check=True,
         capture_output=True,
