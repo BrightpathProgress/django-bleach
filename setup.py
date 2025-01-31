@@ -43,11 +43,11 @@ setup(
     license="MIT",
     packages=find_packages(exclude=("testproject*",)),
     install_requires=[
-        "bleach[css]>=5,<6",
+        "bleach[css]>=6.2.0,<7",
         "Django>=4.2",
     ],
     python_requires=">=3.9",
-    tests_require=["bleach[css]>=5,<6", "mock", "sphinx", "tox"],
+    tests_require=["bleach[css]>=6.2.0,<7", "mock", "sphinx", "tox"],
     cmdclass={
         "build_sphinx": BuildDoc,
     },
