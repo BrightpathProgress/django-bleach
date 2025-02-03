@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruff
       - name: Run Ruff
-        run: ruff django_bleach
+        run: ruff format --check django_bleach
 
   codespell:
     runs-on: ubuntu-latest
