@@ -11,7 +11,7 @@ class TestBleachTemplates(TestCase):
             {"some_unsafe_content": '<script>alert("Hello World!")</script>'},
         )
         template_to_render = Template(
-            "{% load bleach_tags %}" "{{ some_unsafe_content|bleach }}"
+            "{% load bleach_tags %}{{ some_unsafe_content|bleach }}"
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
@@ -23,7 +23,7 @@ class TestBleachTemplates(TestCase):
         """Test that None is handled properly as an input"""
         context = Context({"none_value": None})
         template_to_render = Template(
-            "{% load bleach_tags %}" "{{ none_value|bleach }}"
+            "{% load bleach_tags %}{{ none_value|bleach }}"
         )
         rendered_template = template_to_render.render(context)
         self.assertEqual("None", rendered_template)
@@ -34,8 +34,7 @@ class TestBleachTemplates(TestCase):
             {"some_unsafe_content": '<script>alert("Hello World!")</script>'}
         )
         template_to_render = Template(
-            "{% load bleach_tags %}"
-            '{{ some_unsafe_content|bleach:"script" }}'
+            '{% load bleach_tags %}{{ some_unsafe_content|bleach:"script" }}'
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
@@ -47,7 +46,7 @@ class TestBleachTemplates(TestCase):
         url = "www.google.com"
         context = Context({"link_this": url})
         template_to_render = Template(
-            "{% load bleach_tags %}" "{{ link_this|bleach_linkify|safe }}"
+            "{% load bleach_tags %}{{ link_this|bleach_linkify|safe }}"
         )
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
@@ -59,7 +58,7 @@ class TestBleachTemplates(TestCase):
         """Test bleach linkify with None as an input"""
         context = Context({"none_value": None})
         template_to_render = Template(
-            "{% load bleach_tags %}" "{{ none_value|bleach_linkify }}"
+            "{% load bleach_tags %}{{ none_value|bleach_linkify }}"
         )
         rendered_template = template_to_render.render(context)
         self.assertEqual(
