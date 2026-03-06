@@ -1,4 +1,0 @@
-bleach>=6.2.0,<7
-coverage[toml]
-mock
-tinycss2
